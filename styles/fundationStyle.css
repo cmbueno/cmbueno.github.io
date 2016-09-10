@@ -1,0 +1,52 @@
+/* body background image */
+body{
+	background: url("../img/takeOff.jpg") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color: white!important;
+}
+
+/* horizontal lines above topics lists */ 
+hr { 
+	display: block;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: inset;
+	border-width: 1px;
+}
+
+
+/* h1 customized for website heading*/
+h1{
+	font-family: 'Orbitron', Impact, sans-serif;
+	font-weight: bold;
+	letter-spacing: 1.5px;
+}
+
+/* background color for paragraph */
+p{
+	background-color: rgba(254, 223, 134, 0.55);
+	padding: 10px;
+}
+
+/* increase size of the list items */
+li{
+	font-size: 1.15em;
+}
+
+/* Authors credit effects */
+.rotate {
+
+-webkit-transform: rotate(-90deg); 		/* Safari */
+-moz-transform: rotate(-90deg); 		/* Firefox */
+-ms-transform: rotate(-90deg); 			/* IE */
+-o-transform: rotate(-90deg); 			/* Opera */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); /* Internet Explorer */
+/* for location */
+float: right;
+margin-right: -15px;
+}
