@@ -51,6 +51,7 @@ namespace XYZ.Controllers
         /// <param name="AddedUserData"></param>
         /// <returns></returns>
         [HttpPost]
+		[ValidateAntiForgeryToken]
         public ActionResult AddUser(User_Model_BusinessLayer AddedUserData)
         {
             string mssgBack_User = string.Empty;
@@ -93,6 +94,7 @@ namespace XYZ.Controllers
         }
 
         [HttpPost]
+		[ValidateAntiForgeryToken]
         public ActionResult UserEdit(EditUser_Model_BusinessLayer SelectedUserData)
         {
             Session["mssgCont"] = null;
@@ -130,8 +132,6 @@ namespace XYZ.Controllers
                     foreach (Junc_Email_Dest_Model_BusinessLayer emailItem in selectedUserRetrievedJuncEmailDataList)
                     {
                         if (emailItem.P_EMAIL == "Y") { e_mailCondition = "P"; }
-                        else if (emailItem.CC_EMAIL == "Y") { e_mailCondition = "C"; }
-                        else if (emailItem.BC_EMAIL == "Y") { e_mailCondition = "B"; }
                         else { e_mailCondition = "N"; }
 
                         emailCode_Dictionary.Add(emailItem.EMAIL_REASON_CODE, e_mailCondition);
@@ -154,16 +154,7 @@ namespace XYZ.Controllers
 
                 modelWithSelectedUserProfile.USER_ID = selectedUserRetrievedData.USER_ID;                                           //populates model for rendering user data
                 modelWithSelectedUserProfile.LAST_NAME = selectedUserRetrievedData.LAST_NAME;
-                modelWithSelectedUserProfile.FIRST_NAME = selectedUserRetrievedData.FIRST_NAME;
-                modelWithSelectedUserProfile.EMAIL = selectedUserRetrievedData.EMAIL;   
                 
-                string isLOCKED = selectedUserRetrievedData.LOCKED;                                     //retrieves and converts Locked status 
-                var lockedSelectList = new List<SelectListItem>();
-                lockedSelectList.Add(new SelectListItem { Text = "No", Value = "N",  Selected = (isLOCKED == "N" ? true : false)}); // if isLOCKED not 'N' nor 'Y' then
-                lockedSelectList.Add(new SelectListItem { Text = "Yes", Value = "Y", Selected = (isLOCKED == "Y" ? true : false)}); //  none is 'Selected'
-
-                modelWithSelectedUserProfile.LOCKED_LIST = lockedSelectList;
-
                 return View(modelWithSelectedUserProfile);
 
             }
@@ -184,6 +175,7 @@ namespace XYZ.Controllers
 
 
         [HttpPost]
+		[ValidateAntiForgeryToken]
         public ActionResult UpdateUser(User_Model_BusinessLayer userUIUpdatedData)
         {
             string mssg_back = string.Empty;

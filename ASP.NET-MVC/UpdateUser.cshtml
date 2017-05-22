@@ -30,14 +30,6 @@
         <div class="col-md-12" style="color:red;"><p>Fields marked with an asterisk * are required.</p></div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.USER_ID, new { @class = "control-label col-md-6" })
-            <div class="col-md-6">
-                @Html.EditorFor(model => model.USER_ID)
-                @Html.ValidationMessageFor(model => model.USER_ID)
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.LAST_NAME, new { @class = "control-label col-md-6" })
             <div class="col-md-6">
                 @Html.EditorFor(model => model.LAST_NAME)
@@ -46,42 +38,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.FIRST_NAME, new { @class = "control-label col-md-6" })
-            <div class="col-md-6">
-                @Html.EditorFor(model => model.FIRST_NAME)
-                @Html.ValidationMessageFor(model => model.FIRST_NAME)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EMAIL, new { @class = "control-label col-md-6" })
-            <div class="col-md-6">
-                @Html.EditorFor(model => model.EMAIL)
-                @Html.ValidationMessageFor(model => model.EMAIL)
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.ROLE_ID, new { @class = "control-label col-md-6" })
             <div class="col-md-6">
                 @Html.DropDownListFor(model => model.ROLE_ID, Model.ROLE_ID_LIST, "-- SELECT ONE --")
                 @Html.ValidationMessageFor(model => model.ROLE_ID)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CONTRACTOR_ID, new { @class = "control-label col-md-6" })
-            <div class="col-md-6">
-                @Html.DropDownListFor(model => model.CONTRACTOR_ID, Model.CONTRACTOR_ID_LIST, "-- SELECT ONE --")
-                @Html.ValidationMessageFor(model => model.CONTRACTOR_ID)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LOCKED, new { @class = "control-label col-md-6" })
-            <div class="col-md-6">
-                @Html.DropDownListFor(model => model.LOCKED, Model.LOCKED_LIST, "-- SELECT ONE --")
-                @Html.ValidationMessageFor(model => model.LOCKED)
             </div>
         </div>
 
@@ -98,45 +58,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row" class="text-left">Database Error</td>
-                            <td>@Html.RadioButton("DbError", "P", (dicEmail["41"] == "P") ? new { @checked = "checked" } : null)</td>
-                            <td>@Html.RadioButton("DbError", "C", (dicEmail["41"] == "C") ? new { @checked = "checked" } : null)</td>
-                            <td>@Html.RadioButton("DbError", "B", (dicEmail["41"] == "B") ? new { @checked = "checked" } : null)</td>
-                            <td>@Html.RadioButton("DbError", "N", (dicEmail["41"] == "N") ? new { @checked = "checked" } : null)</td>
-                        </tr>
-
-                        <tr>
-                            <td scope="row" class="text-left">Inspector Determination Change</td>
-                            <td>@Html.RadioButton("InspDetermChange", "P", (dicEmail["42"]=="P") ? new { @checked = "checked" } : null)</td>
-                            <td>@Html.RadioButton("InspDetermChange", "C", (dicEmail["42"]=="C") ? new { @checked = "checked" } : null)</td>
-                            <td>@Html.RadioButton("InspDetermChange", "B", (dicEmail["42"]=="B") ? new { @checked = "checked" } : null)</td>
-                            <td>@Html.RadioButton("InspDetermChange", "N", (dicEmail["42"]=="N") ? new { @checked = "checked" } : null)</td>
-                        </tr>
-
-                        <tr>
-                            <td scope="row" class="text-left">Inspector Deleted</td>
-                            <td>@Html.RadioButton("InspDeleted", "P", (dicEmail["43"] == "P") ? new { @checked = "checked" } : null)</td>
-                            <td>@Html.RadioButton("InspDeleted", "C", (dicEmail["43"] == "C") ? new { @checked = "checked" } : null)</td>
-                            <td>@Html.RadioButton("InspDeleted", "B", (dicEmail["43"] == "B") ? new { @checked = "checked" } : null)</td>
-                            <td>@Html.RadioButton("InspDeleted", "N", (dicEmail["43"] == "N") ? new { @checked = "checked" } : null)</td>
-                        </tr>
-
-                        <tr>
-                            <td scope="row" class="text-left">Deployment List Report</td>
-                            <td>@Html.RadioButton("DepListReport", "P", (dicEmail["44"] == "P") ? new { @checked = "checked" } : null)</td>
-                            <td>@Html.RadioButton("DepListReport", "C", (dicEmail["44"] == "C") ? new { @checked = "checked" } : null)</td>
-                            <td>@Html.RadioButton("DepListReport", "B", (dicEmail["44"] == "B") ? new { @checked = "checked" } : null)</td>
-                            <td>@Html.RadioButton("DepListReport", "N", (dicEmail["44"] == "N") ? new { @checked = "checked" } : null)</td>
-                        </tr>
-
-                        <tr>
-                            <td scope="row" class="text-left">Application Administrators</td>
-                            <td>@Html.RadioButton("AppAdmins", "P", (dicEmail["45"] == "P") ? new { @checked = "checked" } : null)</td>
-                            <td>@Html.RadioButton("AppAdmins", "C", (dicEmail["45"] == "C") ? new { @checked = "checked" } : null)</td>
-                            <td>@Html.RadioButton("AppAdmins", "B", (dicEmail["45"] == "B") ? new { @checked = "checked" } : null)</td>
-                            <td>@Html.RadioButton("AppAdmins", "N", (dicEmail["45"] == "N") ? new { @checked = "checked" } : null)</td>
-                        </tr>
 
                         <tr>
                             <td scope="row" class="text-left">Technical Solutions</td>

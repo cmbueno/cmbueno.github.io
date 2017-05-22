@@ -17,8 +17,6 @@ namespace BusinessLayer
         public string USER_ID { get; set; }
         public string EMAIL_REASON_CODE { get; set; }
         public string P_EMAIL { get; set; }
-        public string CC_EMAIL { get; set; }
-        public string BC_EMAIL { get; set; }
         public string NO_EMAIL { get; set; }
     }
 }
