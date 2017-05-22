@@ -52,13 +52,16 @@ margin-right: -15px;
 }
 
 /* wil include Glyphicons for extended and collapsed lists */
-a:after {
+h3 a:after {
     font-family:'Glyphicons Halflings';
     content:"\e114";
     float: right;
     color: white;
 	font-size: 75%;
 }
-a.collapsed:after {
+h3 a.collapsed:after {
     content:"\e080";
+}
+a{
+	color: white!important;
 }
