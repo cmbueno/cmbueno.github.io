@@ -29,7 +29,7 @@ h1{
 
 /* background color for paragraph */
 p{
-	background-color: rgba(254, 223, 134, 0.55);
+	/*background-color: rgba(254, 223, 134, 0.55);*/
 	padding: 10px;
 }
 
@@ -64,4 +64,12 @@ h3 a.collapsed:after {
 }
 a{
 	color: white!important;
+}
+
+.jumbotron{
+	background-color: rgba(65,131,131,0.55);
+}
+
+.jumbotron h1{
+	font-weight: normal!important;
 }
