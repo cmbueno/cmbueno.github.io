@@ -1,0 +1,491 @@
+﻿@model FIDA.Models.DetailsReportRequest_Model
+
+@Styles.Render("~/Content/fida.css")
+
+@{
+    ViewBag.Title = "View Details Report Request";
+}
+
+<div class="container" style="padding-top:70px;">
+    <h2 id="main">View Report Details</h2>
+
+    @using (Html.BeginForm(new { id = "detailForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true)
+
+    <h4>User Requested Details</h4>
+
+    @Html.ActionLink("Printer Friendly Version", "printFriendly", "DetailsReportRequest", new { repReqNum = @Model.RequestID.ToString() }, null)
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.RequestID, new { @class = "control-label" })
+            @Html.EditorFor(model => model.RequestID, new { htmlAttributes = new { @class = "form-control ", @readonly = "readonly"  } })
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.UserName, new { @class = "control-label" })
+            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control UserLayout", @readonly = "readonly", id = "userName" } })
+        </div>
+
+
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.TimeStamp, new { @class = "control-label" })
+            @Html.EditorFor(model => model.TimeStamp, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.ReportType, new { @class = "control-label" })
+            @Html.EditorFor(model => model.ReportType, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.ReportStatus, new { @class = "control-label" })
+            @Html.EditorFor(model => model.ReportStatus, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.RepNeededBy, new { @class = "control-label" })
+            @Html.EditorFor(model => model.RepNeededBy, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.CurrDutyStation, new { @class = "control-label" })
+            @Html.EditorFor(model => model.CurrDutyStation, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.RunFrequency, new { @class = "control-label" })
+            @Html.EditorFor(model => model.RunFrequency, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @style = ""} })
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:35px;">
+            @Html.LabelFor(model => model.WhatYouNeed, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @style = "text-lign:left; width:120em;"} })
+            @Html.TextAreaFor(model => model.WhatYouNeed, 8, 55, new { @class = "form-control", @readonly = "readonly" })
+        </div>
+
+
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:35px;">
+            @Html.LabelFor(model => model.WhyYouNeed, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @style = "text-lign:left;"} })
+            @Html.TextAreaFor(model => model.WhyYouNeed, 8, 55, new { @class = "form-control", @readonly = "readonly" })
+        </div>
+
+
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.FieldsRequired, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @style = "text-lign:left;"} })
+            @Html.TextAreaFor(model => model.FieldsRequired, 8, 55, new { @class = "form-control", @readonly = "readonly" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.SortDispCriteria, new { @class = "control-label" })
+            @Html.EditorFor(model => model.SortDispCriteria, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.DisasterType, new { @class = "control-label" })
+            @Html.EditorFor(model => model.DisasterType, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+        </div>
+
+
+        <div class="form-group  col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.DisasterNo, new { @class = "control-label" })
+            @Html.EditorFor(model => model.DisasterNo, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.PrefDelivery, new { @class = "control-label" })
+            @Html.EditorFor(model => model.PrefDelivery, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-7 col-md-8" style="padding-right:72px;">
+                @Html.LabelFor(model => model.UserComments, new { @class = "control-label" })
+                @Html.TextAreaFor(model => model.UserComments, 4, 55, new { @class = "form-control", @readonly = "readonly" })
+        </div>
+
+        <div class="form-group col-xs-0 col-sm-0 col-md-0" style="padding-right:40px;">
+        </div>
+    </div>
+
+    @*Begin of Admin section*@
+
+    @if (User.IsInRole("ADMIN") && System.Configuration.ConfigurationManager.AppSettings["CurrentRole"] == "A")
+        {
+
+    @*<hr />*@
+        <h4>Admin Related Details</h4>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px; padding-left:-15px;">
+            @Html.LabelFor(model => model.StaffPriorityLevel, new { @class = "control-label" })
+            @Html.DropDownListFor(model => model.StaffPriorityLevel, Model.StaffPrioLevel_List as IEnumerable<SelectListItem>, "-- Select Priority Level --", new { @class = "form-control" })
+            <br />@Html.ValidationMessageFor(model => model.StaffPriorityLevel)
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.ReportStaff, new { @class = "control-label" })
+            @Html.DropDownListFor(model => model.ReportStaff, Model.ReportStaff_List as IEnumerable<SelectListItem>, "-- Select Report Staff --", new { @class = "form-control" })
+            <br>@Html.ValidationMessageFor(model => model.ReportStaff)
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.AdminStatus, new { @class = "control-label" })
+            @Html.DropDownListFor(model => model.AdminStatus, Model.AdminStatus_List as IEnumerable<SelectListItem>, "-- Select Admin. Status --", new { @class = "form-control" })
+            <br>@Html.ValidationMessageFor(model => model.AdminStatus)
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+                <div>
+                    @Html.LabelFor(model => model.EstimCompletionTime, new { @class = "control-label" })
+                    @Html.EditorFor(model => model.EstimCompletionTime, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-12 col-md-12">
+                    <div><br /><span class="control-label" style="font-weight:bold">Update Estimated Completion Time:</span></div>
+                    <div class="col-md-6">
+                        <div>@Html.LabelFor(model => model.UpdateECTDays, new { @class = "control-label" })</div>
+                        <div>@Html.EditorFor(model => model.UpdateECTDays, new { htmlAttributes = new { @class = " EditorStylePhone blankThisAdmin", maxlength = "3", @Title = "Update ECT Days" } })</div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div>@Html.LabelFor(model => model.UpdateECTHours, new { @class = "control-label" })</div>
+                        <div>@Html.EditorFor(model => model.UpdateECTHours, new { htmlAttributes = new { @class = "EditorStylePhone blankThisAdmin", maxlength = "2", @Title = "Update ECT Hours" } })</div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div>@Html.ValidationMessageFor(model => model.UpdateECTDays)</div>
+                    <div>@Html.ValidationMessageFor(model => model.UpdateECTHours)</div>
+                </div>
+
+            </div>
+
+            <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+                @Html.LabelFor(model => model.StaffComments, new { @class = "control-label" })
+                @Html.TextAreaFor(model => model.StaffComments, 8, 55, new { @class = "form-control blankThisAdmin" })
+                <br>@Html.ValidationMessageFor(model => model.StaffComments)
+            </div>
+
+            <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+                @Html.LabelFor(model => model.NotesToRequester, new { @class = "control-label" })
+                @Html.TextAreaFor(model => model.NotesToRequester, 8, 55, new { @class = "form-control blankThisAdmin" })
+                <br>@Html.ValidationMessageFor(model => model.NotesToRequester)
+            </div>
+
+
+
+
+        </div>
+
+        <div class="row">        
+
+
+        </div>  @*div of the column*@
+
+
+    <div class="row">      @*div fourth row*@
+        <div class="col-md-12">
+            <div class="form-group">
+                @*<div class="col-md-10 col-sm-5" align="center">*@
+                <div class="col-md-10">
+                    <input type="submit" value="Submit Admin. Detail" class="btn btn-primary" title="Submit Admin. Detail" name="AdminDetail" formaction="AdminDetail" id="AdminDetail" />
+                    @*<input type="reset" value="@ViewBag.ResetBtnText" title="@ViewBag.ResetBtnText" id="clearBtn" class="btn btn-default" />*@
+                    <input type="reset" value="Reset" title="Reset" id="clearAdminBtn" class="btn btn-default resetAdDet" />
+                    <input type="button" value="Cancel" title="Cancel" class="btn btn-default cancelBtn" data-target="#confDialogMd" data-toggle="modal" />
+                </div>
+            </div>                
+        </div>  @*div of the column*@
+    </div>    @*div fourth row*@
+        
+    @*<hr />*@        
+        
+     <br/> 
+        
+    <h4>Add Report Details</h4>
+
+    <div class="row">      @*div fifth row*@
+
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.ReportName, new { @class = "control-label" })
+            @Html.EditorFor(model => model.ReportName, new { maxlength = 50, htmlAttributes = new { @class = "form-control blankThisDetail" }, id = "ReportName" })
+            <br>@Html.ValidationMessageFor(model => model.ReportName)
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-7 col-md-2">
+            @Html.LabelFor(model => model.FOIA_yes, new { @class = "control-label col-md-2" })
+            <br /><br />
+
+            @Html.RadioButtonFor(model => model.FOIA_yes, "Y")
+            @Html.Label("yes", "Yes")
+
+            @Html.RadioButtonFor(model => model.FOIA_yes, "N")
+            @Html.Label("no", "No")
+            <br>@Html.ValidationMessageFor(model => model.FOIA_yes)
+
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-7 col-md-4" style="padding-right:40px;">
+            @Html.LabelFor(model => model.UserReportLocation, new { @class = "control-label" })
+            @Html.EditorFor(model => model.UserReportLocation, new { maxlength = 100, htmlAttributes = new { @class = "form-control blankThisDetail", id = "UserRepLocat" } })
+            <br />@Html.ValidationMessageFor(model => model.UserReportLocation)
+        </div>
+
+
+   </div>  @*div of the row*@
+
+        <div class="row">
+
+            <div class="form-group col-xs-12 col-sm-7 col-md-6" style="padding-right:68px;">
+                @Html.LabelFor(model => model.ReportDescription, new { @class = "control-label" })
+                @Html.TextAreaFor(model => model.ReportDescription, 4, 55, new { maxlength = 2000, @class = "form-control blankThisDetail", id = "ReportDesc" })
+                <br>@Html.ValidationMessageFor(model => model.ReportDescription)
+            </div>
+
+
+        </div>  @*div of the row*@
+       
+        <div class="row">      @*div six row*@
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="submit" value="Submit Report Detail" class="btn btn-primary" title="Submit Report Detail" name="ReportDetail" formaction="ReportDetail" id="ReportDetail" />
+                        @*<input type="reset" value="@ViewBag.ResetBtnText" title="@ViewBag.ResetBtnText" id="clearBtn" class="btn btn-default" />*@
+                        <input type="reset" value="Reset" title="Reset" id="clearDetailBtn" class="btn btn-default resetAdDet" />
+                        <input type="button" value="Cancel" title="Cancel" class="btn btn-default cancelBtn" data-target="#confDialogMd" data-toggle="modal" />
+                    </div>
+                </div>
+
+            </div>  @*div of the column*@
+
+        </div>  @*div of  six row*@
+
+        }    @*end of Admin section*@
+
+        <div class="row">
+            <div class="col-md-12" align="center">
+                <h4>Report Details</h4>
+            </div>
+        </div>
+
+    </div>
+
+    }
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+    //$("#ReportStaff").val('3541');
+
+    $(document).ready(function () {
+        // Set drop down lists to selected values
+        $("#StaffPriorityLevel").val('@Session["staffPrioLevel"]');
+        $("#ReportStaff").val('@Session["reportStaff"]');
+        $("#AdminStatus").val('@Session["admStatus"]');
+        // $("#ReportType_Adding").val('@Session["repType"]');
+
+        //Restage as 'required' the Add Report Details' and Admin Related Details' fields, in case were modified for form postback
+
+        $("#ReportName").rules("add", "required");
+        $("#ReportDesc").rules("add", "required");
+        $("#FOIA_yes").rules("add", "required");
+        $("#UserRepLocat").rules("add", "required");
+        $("#StaffPriorityLevel").rules("add", "required");
+        $("#ReportStaff").rules("add", "required");
+        $("#AdminStatus").rules("add", "required");
+
+
+        // Displays user info
+        $("#userName").click(function () {
+
+            $("#confirmContent2").text('@Session["userDataID"]');
+            $("#confirmContent3").text('@Session["userDataName"]');
+            $("#confirmContent4").text('@Session["userDataEmail"]');
+            $("#confirmContent5").text('@Session["userDataPhone"]');
+            $("#confirmContent6").text('@Session["userDataDateReg"]');
+            $("#userDataDialog").modal({ backdrop: false });
+
+                return false;
+            });
+
+        //------------------
+
+        $("#AdminDetail").click(function () {
+
+            //Remove required attribute of Add Report Details' values, for the form to postback without the validation of these
+
+            $("#ReportName").rules("remove", "required");
+            $("#ReportDesc").rules("remove", "required");
+            $("#FOIA_yes").rules("remove", "required");
+            $("#UserRepLocat").rules("remove", "required");
+
+            $("#StaffPriorityLevel").rules("add", "required");
+            $("#ReportStaff").rules("add", "required");
+            $("#AdminStatus").rules("add", "required");
+            
+            //return false;
+        });
+
+        $("#ReportDetail").click(function () {
+
+            //Remove required attribute of Admin Related Details' values, for the form to postback without the validation of these
+
+            $("#StaffPriorityLevel").rules("remove", "required");
+            $("#ReportStaff").rules("remove", "required");
+            $("#AdminStatus").rules("remove", "required");
+
+            $("#ReportName").rules("add", "required");
+            $("#ReportDesc").rules("add", "required");
+            $("#FOIA_yes").rules("add", "required");
+            $("#UserRepLocat").rules("add", "required");
+
+            //return false;
+        });
+        //------------------
+
+
+        $(".resetAdDet").click(function (e) {
+            
+            resetBtnID = e.target.id;
+            var confMssg = "";
+
+            // set modal confirmation message
+            switch (resetBtnID)
+            {
+                case "clearAdminBtn": confMssg = "Are you sure you want to Reset Admin. Related Details"; break;
+                case "clearDetailBtn":  confMssg = "Are you sure you want to Reset Adding Report Details";  break;
+                //case "": confMssg = "Are you sure you want to Reset all the fields in the form"; break;
+
+                default: alert("An error is present in the application interface, please contact your administrator");
+            }
+
+            // displays modal 
+            $("#confContentMd").text(confMssg);
+            $("#confDialogMd").modal({ backdrop: false });
+
+            $('#confDialogMd .modal-footer button').click(function () {
+                var id = $(this).data('id');
+
+                if (id == "Y") {            // then resets page depending on the area Admin Related, Add Report Details, or
+
+                    switch (resetBtnID) {
+
+                        case "clearAdminBtn":
+                            
+                            // Set drop down lists to selected values
+                            $("#StaffPriorityLevel").val('@Session["staffPrioLevel"]');
+                            $("#ReportStaff").val('@Session["reportStaff"]');
+                            $("#AdminStatus").val('@Session["admStatus"]');
+                            $(".blankThisAdmin").val("");
+                            $("#StaffComments").val('@Session["staffComm"]');
+                            $("#NotesToRequester").val('@Session["notesRequest"]');
+                            break;
+
+                        case "clearDetailBtn":
+                            
+                            //Blanks Details input texts
+                            $(".blankThisDetail").val("");
+
+                            break;
+
+                        //case "":
+                        //    confMssg = "Are you sure you want to Reset all the fields in the form";
+                        //    break;
+
+                        default:
+                            alert("An error is present in the application interface, please contact your administrator");
+
+                    }
+
+                    // clear all validation messages
+                    $('.field-validation-error').html("");
+                    $('.input-validation-error').removeClass('input-validation-error');
+
+                    //Restage as 'required' all the fields preset as required
+                    $("#ReportName").rules("add", "required");
+                    $("#ReportDesc").rules("add", "required");
+                    $("#FOIA_yes").rules("add", "required");
+                    $("#UserRepLocat").rules("add", "required");
+                    $("#StaffPriorityLevel").rules("add", "required");
+                    $("#ReportStaff").rules("add", "required");
+                    $("#AdminStatus").rules("add", "required");
+
+                }
+            });
+
+            return false;
+        });
+
+        $(".cancelBtn").click(function () {
+
+            var confMssg = "Are you sure you want To Cancel Adding Report Details and Exit?";
+
+            $("#cancelContentRp").text(confMssg);
+            $("#cancelDialogRp").modal({ backdrop: false });
+
+            $('#cancelDialogRp .modal-footer button').click(function () {
+                var id = $(this).data('id');
+
+                if (id == "Y") {            // Redirect to previous page
+
+                    // window.location = document.referrer;
+
+                    window.location.href = '@Url.Action("RequestReport", "RequestReport")';
+                }
+            });
+            return false;
+        });
+
+        //function that displays errors or success in transaction 
+
+        if ('@Session["transactionStatus"]' != "") {
+
+            // clear all validation messages
+            $('.field-validation-error').html("");
+            $('.input-validation-error').removeClass('input-validation-error');
+
+            // sets Modal's error message
+            var tStatus = '@Session["transactionStatus"]';
+
+            switch (tStatus)
+            {
+                case "1": errMssg = "Admin Related Details data was updated successfully"; break;
+                case "2": errMssg = "Report Details data was saved successfully"; break;
+
+                default: errMssg = tStatus;  // Case of an exception it will display the exception's message
+            }            
+            
+            var errTitle = "";
+
+            $("#confirmContent").text(errMssg);
+            $("#confirmMessage").modal({ backdrop: false });
+
+
+        }
+
+
+
+
+    });
+
+    </script>
+}
